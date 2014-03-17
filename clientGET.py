@@ -39,10 +39,10 @@ class Agent():
         reactor.callLater(2, self.requestResource)
 
     def requestResource(self):
-        request = coap.Message(code=coap.POST, payload=struct.pack("!f", float(-22.6)))
+        request = coap.Message(code=coap.POST, payload="-252.6")
         #request.opt.uri_path = ('other', 'separate')
-        request.opt.uri_path = ('/onep:v1/stack/alias',)
-        request.opt.uri_query = ('cik=98acd7f4dc8dd67cee40462ea623f99c8bc4adf1&alias=temp&type=float',)
+        request.opt.uri_path = ('/1a/temp',)
+        request.opt.uri_query = ('98acd7f4dc8dd67cee40462ea623f99c8bc4adf1',)
         request.remote = ("65.49.60.152", coap.COAP_PORT)
         #request.setObserve(self.printLaterResponse)
         d = protocol.request(request)
